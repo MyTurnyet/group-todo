@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react"
-import { TodoList } from "../TodoList"
+import { SwitchListView } from "../SwitchListView"
 
 describe("TodoList", () => {
   const renderTodoList = (title: string, items: string[]) => {
-    render(<TodoList title={title} items={items} />)
+    render(<SwitchListView title={title} items={items} />)
   }
 
   it("displays title", () => {
