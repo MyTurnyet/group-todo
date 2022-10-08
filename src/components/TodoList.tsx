@@ -1,10 +1,15 @@
 import { TodoItem } from "./TodoItem"
 
-export const TodoList = (props: { title: string; items: string[] }) => {
+interface TodoListProps {
+  title: string
+  items: string[]
+}
+
+export const TodoList = ({ title, items }: TodoListProps) => {
   return (
     <>
-      <div>{props.title}</div>
-      {props.items.map((item) => (
+      <div>{title}</div>
+      {items.map((item) => (
         <TodoItem key={item} title={item} />
       ))}
     </>
