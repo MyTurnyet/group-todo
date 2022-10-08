@@ -2,19 +2,22 @@ import { render, screen } from "@testing-library/react"
 import { TodoList } from "../TodoList"
 
 describe("TodoList", () => {
+  const renderTodoList = (title: string, items: string[]) => {
+    render(<TodoList title={title} items={items} />)
+  }
+
   it("displays title", () => {
-    render(<TodoList title="Something New" items={[]} />)
+    renderTodoList("Something New", [])
     screen.getByText("Something New")
   })
   it("shows one item", () => {
-    render(<TodoList title="Something New" items={["todo item 1"]} />)
+    renderTodoList("Something New", ["todo item 1"])
     screen.getByText("todo item 1")
   })
 
   it("shows two items", () => {
     const items = ["todo item 1", "todo item 2"]
-
-    render(<TodoList title="Something New" items={items} />)
+    renderTodoList("Something New", items)
     screen.getByText(items[0])
     screen.getByText(items[1])
   })
